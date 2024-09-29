@@ -2,13 +2,14 @@ import pickle
 import os
 import re
 from dotenv import load_dotenv # type: ignore
+from .config import config
 
 
 load_dotenv()
 API_KEY = os.getenv('DEVELOPER_KEY')
 
-channel_handles = ['@Sidemen', '@BetaSquad', '@JoeFazer', '@Jynxzi']
-sort_typ = ['top', 'newest']
+channel_handles = config['channels']
+sort_typ = config['sort_type']
 
 
 def get_username():

@@ -1,28 +1,29 @@
 from project import request_channel_ids, request_video_ids, request_comments, request_likes_dislikes
-
+from project import config
 from project import load_comments, load_stats # processes requested dataset from youtube api. Reutrns dictionary of comments and dictionary of stats.
                                   # mappings contain dictionary of channel names with list of video ids.
 import os
 
 
-#set all to true if dataset has not been created
-REQUEST_CHANNEL_IDS = False 
-REQUEST_VIDEO_IDS = False 
-REQUEST_COMMENTS = False
-REQUEST_STATS = False
+
+
+RETRIEVE_DATASET = config['retrieve_dataset'] # set to true if dataset has not been requested
+
+
 
 SOURCE_DIR = f"./dataset"
 
 def request_dataset():
     
-    request_channel_ids(REQUEST_CHANNEL_IDS)
-    request_video_ids(REQUEST_VIDEO_IDS) # set REQUEST variables to true if dataset has not been saved
-    request_comments(REQUEST_COMMENTS)
-    request_likes_dislikes(REQUEST_STATS)
+    request_channel_ids(RETRIEVE_DATASET)
+    request_video_ids(RETRIEVE_DATASET) 
+    request_comments(RETRIEVE_DATASET)
+    request_likes_dislikes(RETRIEVE_DATASET)
                   
 
 
 if __name__ == '__main__':
+    
     print("\nrunning...\n")
     
     request_dataset()
@@ -39,6 +40,4 @@ if __name__ == '__main__':
         
     #     print(f"\n")
     
-
-        
     print("\nexecuted")
