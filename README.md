@@ -6,6 +6,7 @@
 2. Features
 3. Installation
 4. Usage
+5. Dataset Structure
 
 # Introduction
 
@@ -13,7 +14,7 @@ This project uses Google Cloud services to interact with the YouTube API, allowi
 
 The request flow consists of retrieving channel IDs, video IDs, comments, and video statistics in a sequential manner. Users need to set all request parameters to True for the first-time setup.
 
-Channel Handles are all that is needed. Channel handles are found on the YouTuber's channel with a '@' symbol. 
+Channel Handles are all that is needed. Channel handles are found on the YouTuber's channel with a '@' symbol. You can add more channel handles in the config file. 
 
 
 
@@ -46,7 +47,8 @@ pip install -r requirements.txt
 
 # Usage
 
-1. Set **RETRIEVE_DATASET** Parameter to **True**.
+1. In the config file set **retrieve_dataset** Parameter to **True**.
 2. Run ```python main.py``` as is.
-3. Once Dataset has been retrieved, set **RETRIEVE_DATASET** to **False**.
-4. Now uncomment 
+3. Once Dataset has been retrieved, set **retrieve_dataset** to **False** in the config file.
+4. Now uncomment in main to load Comments and statistics.
+
